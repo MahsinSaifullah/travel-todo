@@ -4,10 +4,14 @@ import { PackingList } from "./PackingList";
 import { Stats } from "./Stats";
 
 export const App = () => {
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+  }
+
   return (
     <div className="app">
      <Logo/>
-     <Form/>
+     <Form onSubmit={handleFormSubmit}/>
      <PackingList/>
      <Stats/>
     </div>
