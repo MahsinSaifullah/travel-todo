@@ -19,6 +19,12 @@ export const App = () => {
     []
   );
 
+  const numOfItems = packingItems.length;
+  const numOfPackedItems = packingItems.filter((item) => item.packed).length;
+  const percentageOfItemsPacked = Math.floor(
+    (numOfPackedItems / (numOfItems || 1)) * 100
+  );
+
   const handleFormSubmit = (formData: IFormData) => {
     setPackingItems([...packingItems, createPackingItem(formData)]);
   };
@@ -44,7 +50,11 @@ export const App = () => {
         onToggle={handlePackedToggle}
         onDelete={handleDelete}
       />
-      <Stats />
+      <Stats
+        totalItems={numOfItems}
+        totalPackedItems={numOfPackedItems}
+        percentageOfItemsPacked={percentageOfItemsPacked}
+      />
     </div>
   );
 };
