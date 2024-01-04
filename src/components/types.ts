@@ -4,3 +4,8 @@ export interface IPackingItem {
     quantity: number;
     packed: boolean;
 }
+
+export interface IFormData {
+    description: string;
+    quantity: number;
+}
