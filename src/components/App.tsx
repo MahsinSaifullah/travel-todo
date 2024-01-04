@@ -23,7 +23,7 @@ export const App = () => {
     setPackingItems([...packingItems, createPackingItem(formData)]);
   };
 
-  const handleItemPackedToggle = (id: number) => {
+  const handlePackedToggle = (id: number) => {
     setPackingItems(
       packingItems.map((item) =>
         item.id === id ? { ...item, packed: !item.packed } : item
@@ -31,11 +31,19 @@ export const App = () => {
     );
   };
 
+  const handleDelete = (id: number) => {
+    setPackingItems(packingItems.filter((item) => item.id !== id));
+  };
+
   return (
     <div className="app">
       <Logo />
       <Form onSubmit={handleFormSubmit} />
-      <PackingList items={packingItems} onToggle={handleItemPackedToggle} />
+      <PackingList
+        items={packingItems}
+        onToggle={handlePackedToggle}
+        onDelete={handleDelete}
+      />
       <Stats />
     </div>
   );
