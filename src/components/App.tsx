@@ -23,11 +23,19 @@ export const App = () => {
     setPackingItems([...packingItems, createPackingItem(formData)]);
   };
 
+  const handleItemPackedToggle = (id: number) => {
+    setPackingItems(
+      packingItems.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  };
+
   return (
     <div className="app">
       <Logo />
       <Form onSubmit={handleFormSubmit} />
-      <PackingList items={packingItems} />
+      <PackingList items={packingItems} onToggle={handleItemPackedToggle} />
       <Stats />
     </div>
   );
