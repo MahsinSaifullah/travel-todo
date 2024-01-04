@@ -11,7 +11,14 @@ export const Form: React.FC<FormProps> = ({ onSubmit }) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (!description) {
+      return;
+    }
+
     onSubmit({ description, quantity });
+    setDescription("");
+    setQuantity(1);
   };
 
   return (
