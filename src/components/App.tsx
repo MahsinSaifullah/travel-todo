@@ -5,17 +5,15 @@ import { Stats } from "./Stats";
 
 export const App = () => {
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-  }
+    event.preventDefault();
+  };
 
   return (
     <div className="app">
-     <Logo/>
-     <Form onSubmit={handleFormSubmit}/>
-     <PackingList/>
-     <Stats/>
+      <Logo />
+      <Form onSubmit={handleFormSubmit} />
+      <PackingList />
+      <Stats />
     </div>
   );
-}
-
-
+};

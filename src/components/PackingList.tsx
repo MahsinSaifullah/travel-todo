@@ -10,9 +10,11 @@ const initialItems: IPackingItem[] = [
 export const PackingList = () => {
   return (
     <div className="list">
-        <ul>
-            {initialItems.map(item => <PackingItem key={item.id} item={item}/>)}
-        </ul>
+      <ul>
+        {initialItems.map((item) => (
+          <PackingItem key={item.id} item={item} />
+        ))}
+      </ul>
     </div>
-  )
-}
+  );
+};
