@@ -10,9 +10,11 @@ export const Stats: React.FC<StatsProps> = ({
   percentageOfItemsPacked,
 }) => {
   if (!totalItems) {
-    <p className="stats">
-      <em>Start adding some items to your packing list 🚀</em>
-    </p>;
+    return (
+      <p className="stats">
+        <em>Start adding some items to your packing list 🚀</em>
+      </p>
+    );
   }
 
   return (
