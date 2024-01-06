@@ -1,9 +1,9 @@
-import { useLocalStorage } from "../hooks/useLocalStorage";
-import { Form } from "./Form";
-import { Logo } from "./Logo";
-import { PackingList } from "./PackingList";
-import { Stats } from "./Stats";
-import { IFormData, IPackingItem } from "./types";
+import { useLocalStorage } from '../hooks/useLocalStorage';
+import { Form } from './Form';
+import { Logo } from './Logo';
+import { PackingList } from './PackingList';
+import { Stats } from './Stats';
+import { IFormData, IPackingItem } from './types';
 
 const createPackingItem = (formData: IFormData): IPackingItem => {
   return {
@@ -15,7 +15,7 @@ const createPackingItem = (formData: IFormData): IPackingItem => {
 
 export const App = () => {
   const [packingItems, setPackingItems] = useLocalStorage<IPackingItem[]>(
-    "packingItem",
+    'packingItem',
     []
   );
 
@@ -41,6 +41,10 @@ export const App = () => {
     setPackingItems(packingItems.filter((item) => item.id !== id));
   };
 
+  const handleClearList = () => {
+    setPackingItems([]);
+  };
+
   return (
     <div className="app">
       <Logo />
@@ -49,6 +53,7 @@ export const App = () => {
         items={packingItems}
         onToggle={handlePackedToggle}
         onDelete={handleDelete}
+        onClearList={handleClearList}
       />
       <Stats
         totalItems={numOfItems}
